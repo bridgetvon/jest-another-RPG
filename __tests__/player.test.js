@@ -15,6 +15,12 @@ test('creates a player object', () => {
     expect(player.strength).toEqual(expect.any(Number));
 });
 
+test("gets players health value", () => {
+    const player = new Player('Dave');
+
+    expect(player.getHealth()).toEqual(expect.stringContaining(player.health.toString()));
+});
+
 test("gets players stats as an object", () => {
     const player = new Player('Dave');
     expect(player.getStats()).toHaveProperty('potions');
@@ -33,11 +39,6 @@ test('gets inventory from player or returns false', () => {
     expect(player.getInventory()).toEqual(false);
 });
 
-test("gets players health value", () => {
-    const player = new Player('Dave');
-
-    expect(player.getHealth()).toEqual(expect.stringContaining(player.health.toString()));
-});
 
 test('check if player is alive or not', () => {
     const player = new Player('Dave');
